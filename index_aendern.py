@@ -2,7 +2,7 @@
 # - trägt die im Auswahlfenster angehakten Änderungen unter "Änderungen auf Plan" ein
 # - schreibt das Datum in den Planparameter "Datum"
 # - zählt in der Plannummer den Index alphabetisch weiter und setzt den Planstatus
-# - schreibt den neuen Index zusätzlich in den Planparameter "(6) Index"
+# - schreibt den neuen Index zusätzlich in den Planparameter "(7) Index"
 # Die Pläne müssen dafür nicht geöffnet werden.
 
 import clr
@@ -33,7 +33,7 @@ status_neu    = str(IN[7] or "unverändert").strip()    # B / F / V / unverände
 # vorletzter Teil = Index, letzter Teil = Planstatus
 TRENNER      = "_"
 PARAM_DATUM  = "Datum"
-PARAM_INDEX  = "(6) Index"
+PARAM_INDEX  = "(7) Index"
 DATUMSFORMAT = "%d.%m.%Y"   # z. B. 03.06.2026
 
 # Planstatus darf nur vorwärts gehen: V -> F -> B (nie zurück).
@@ -279,7 +279,7 @@ else:
                     index_neu = None
                     text += " | FEHLER Nr: {}".format(e)
 
-                # --- Parameter "(6) Index": gleicher Index wie in der Plannummer ---
+                # --- Parameter "(7) Index": gleicher Index wie in der Plannummer ---
                 if index_neu:
                     p = plan.LookupParameter(PARAM_INDEX)
                     if p is None:
